@@ -4,8 +4,8 @@
 function wp_get_menu_array($current_menu) {
     $menu_name = $current_menu;
     $locations = get_nav_menu_locations();
-    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-    $array_menu = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+    $menuObj = wp_get_nav_menu_object( $locations[ $menu_name ] );
+    $array_menu = wp_get_nav_menu_items( $menuObj->term_id, array( 'order' => 'DESC' ) );
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {
